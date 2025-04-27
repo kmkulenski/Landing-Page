@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поръчай книгата</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'orders/style.css' %}">
+</head>
+<body>
+    <h1>Добре дошли!</h1>
+    <img src="{% static 'orders/cover.jpg' %}" alt="Корица на книгата" width="300">
+
+    <h2>Описание на книгата</h2>
+    <p>Тук ще добавим кратко описание...</p>
+
+    <h3>Форма за поръчка</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Поръчай</button>
+    </form>
+</body>
+</html>
