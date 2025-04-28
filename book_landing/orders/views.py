@@ -53,3 +53,14 @@ def order_success(request):
 def thank_you(request):
     # Страница за благодарност след успешна поръчка
     return render(request, 'orders/thank_you.html')
+def order_form(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            # Записване на поръчката в базата данни
+            form.save()
+            return redirect('thank_you')  # Пренасочване към страницата за благодарност
+    else:
+        form = OrderForm()
+
+    return render(request, 'orders/order_form.html', {'form': form})

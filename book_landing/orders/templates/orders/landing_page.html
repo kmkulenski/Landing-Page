@@ -13,12 +13,11 @@
 
     <h2>Описание на книгата</h2>
     <p>Тук ще добавим кратко описание...</p>
+    <h3>Информация за автора</h3>
+    <p>Тук ще добавим информация за автора.</p>
 
-    <h3>Форма за поръчка</h3>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Поръчай</button>
-    </form>
+    <a href="{% url 'orders:order_form' %}">
+        <button type="button">Поръчай</button>
+    </a>
 </body>
 </html>
